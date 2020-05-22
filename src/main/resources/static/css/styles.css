@@ -1,0 +1,77 @@
+.table td, .table th {
+    vertical-align: middle;
+}
+.padx-15 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.wrap {
+    white-space: normal !important;
+}
+
+.table-responsive {
+    display: table;
+}
+
+.alert {
+    padding: .25rem .75rem;
+}
+
+table.dataTable.dtr-inline.collapsed.compact>tbody>tr>td:first-child,
+table.dataTable.dtr-inline.collapsed.compact>tbody>tr>th:first-child {
+    padding-left: 2rem;
+    padding-right: .75rem;
+}
+
+table.dataTable.no-footer {
+    border-bottom: none !important;
+    margin-bottom: .75rem;
+}
+.dataTables_wrapper .dataTables_paginate {
+    padding-top: 0 !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    font-weight: 400 !important;
+    color: #007bff !important;
+    padding: 0.25em !important;
+    border: none !important;
+    border-radius: 0 !important;
+
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    color: #007bff !important;
+    text-decoration: underline !important;
+    border: none !important;
+    background-color: transparent !important;
+    background: none !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #007bff !important;
+    text-decoration: underline !important;
+    border: none !important;
+    background-color: transparent !important;
+    background: none !important;
+}
+
+@media screen and (max-width: 640px) {
+    .dataTables_length {
+        margin-top: 0.5em;
+    }
+}
+
+input[type=date]::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+/* -------------------------------------------------------------------------------------------- */
+.scrollable {}
+@media (max-width: 768px) {
+    .scrollable {
+        height: fit-content;
+        max-height: calc(100vh - 56px - 60px - 166px);
+        overflow-y: auto;
+    }
+}

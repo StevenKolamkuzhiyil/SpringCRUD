@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <div th:replace="fragments.html :: headerfiles"></div>
+    <div th:replace="fragments.html :: footer-headerfiles"></div>
+</head>
+
+<body class="bg-light">
+<header th:replace="fragments.html :: nav"></header>
+
+<main class="content d-flex justify-content-center align-items-center">
+    <div class="text-center">
+        <h1 th:text="${status}">500</h1>
+        <p>Oops some error occured!</p>
+    </div>
+</main>
+
+<footer th:replace="fragments.html :: footer"></footer>
+<footer th:replace="fragments.html :: nav-jquery"></footer>
+<footer th:replace="fragments.html :: nav-script"></footer>
+</body>
+</html>
