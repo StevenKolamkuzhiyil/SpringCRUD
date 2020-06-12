@@ -11,4 +11,4 @@ Clone this repository and run the Spring application.
 
 ### Used Technologies
 
-Java, Spring, Javascript, CSS, HTML, Bootstrap, Datatables
+Java 8, Spring-Web, Thymeleaf, Javascript, Datatables, CSS, HTML, Bootstrap, JQuery, Maven
