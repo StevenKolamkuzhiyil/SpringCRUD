@@ -3,7 +3,7 @@
 A simple web app which executes CRUD operations and displays the database information in a table. The website was built with 
 regards to responsive design.
 
-![Application Screenshot](./Covid19_Screenshot.PNG)
+![Application Screenshot](./SpringCRUD_Screenshot.png)
 
 ## Getting Started
 
