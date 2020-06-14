@@ -4,11 +4,9 @@ A simple web app which executes CRUD operations and displays the database inform
 regards to responsive design.
 
 #### User Roles:
-User: Can only view information in the database.
-
-Manager: Can read, create and update database information.
-
-Admin: Can read, create, update and delete database information.
+- User: Can only view information in the database.
+- Manager: Can read, create and update database information.
+- Admin: Can read, create, update and delete database information.
 
 
 #### Application Screenshot - Admin:
