@@ -1,4 +1,4 @@
-package com.stevenkolamkuzhiyil.SpringCrud.dto.model;
+package com.stevenkolamkuzhiyil.SpringCrud.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;

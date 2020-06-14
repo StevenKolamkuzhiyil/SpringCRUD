@@ -1,9 +1,9 @@
 package com.stevenkolamkuzhiyil.SpringCrud.controller;
 
-import com.stevenkolamkuzhiyil.SpringCrud.dto.BranchDTO;
-import com.stevenkolamkuzhiyil.SpringCrud.dto.EmployeeDTO;
-import com.stevenkolamkuzhiyil.SpringCrud.dto.model.Employee;
 import com.stevenkolamkuzhiyil.SpringCrud.exception.throwable.ValidationException;
+import com.stevenkolamkuzhiyil.SpringCrud.model.Employee;
+import com.stevenkolamkuzhiyil.SpringCrud.model.dto.BranchDTO;
+import com.stevenkolamkuzhiyil.SpringCrud.model.dto.EmployeeDTO;
 import com.stevenkolamkuzhiyil.SpringCrud.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +26,12 @@ public class EmployeeController {
     @Autowired
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
+    }
+
+    @GetMapping("roles")
+    public ResponseEntity<?> roles() {
+        List<String> roles = employeeService.getRoles();
+        return ResponseEntity.ok(roles);
     }
 
     @GetMapping("")

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       lang="en">
 <head>
     <th:block th:fragment="headerfiles">
@@ -11,6 +12,11 @@
         <title>Spring CRUD</title>
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" th:href="@{/bootstrap4/css/bootstrap.min.css}">
+    </th:block>
+
+    <th:block th:fragment="csrf-header">
+        <meta th:name="_csrf" th:content="${_csrf.token}"/>
+        <meta th:name="_csrf_header" th:content="${_csrf.headerName}"/>
     </th:block>
 
     <th:block th:fragment="footer-headerfiles">
@@ -35,6 +41,13 @@
                     <a class="nav-link" href="#" th:href="@{/branches}">Branch</a>
                 </li>
             </ul>
+            <form class="form-inline mt-2 mt-md-0" action="#" th:action="@{~/user/logout}" method="post">
+                <button sec:authorize="isAuthenticated()" type="submit" class="btn btn-outline-danger my-2 my-sm-0">
+                    Logout
+                </button>
+                <a sec:authorize="isAnonymous()" th:if="${#httpServletRequest.requestURI != '/user/login'}"
+                   class="btn btn-outline-info my-2 my-sm-0" href="#" th:href="@{~/user/login}">Login</a>
+            </form>
         </div>
     </nav>
 </header>

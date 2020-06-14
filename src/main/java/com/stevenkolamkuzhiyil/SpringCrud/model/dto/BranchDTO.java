@@ -1,7 +1,7 @@
-package com.stevenkolamkuzhiyil.SpringCrud.dto;
+package com.stevenkolamkuzhiyil.SpringCrud.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.stevenkolamkuzhiyil.SpringCrud.dto.model.Branch;
+import com.stevenkolamkuzhiyil.SpringCrud.model.Branch;
 import com.stevenkolamkuzhiyil.SpringCrud.validation.Dependent;
 import org.springframework.format.annotation.DateTimeFormat;
 

@@ -130,7 +130,6 @@ function styleDataTable() {
 
     $('.dataTables_paginate').addClass('mt-0 float-left');
 
-    var add_btn = '<button type="button" class="btn btn-outline-primary float-right mr-md-2" data-toggle="modal" id="add-btn" data-target="#modalScrollable">+</button>';
     $('#btn-wp').append(add_btn);
 }
 
@@ -213,7 +212,7 @@ function filterEmployeeIdAndName(employee) {
 }
 
 function listAffectedEntries(json) {
-    console.log(json);
+    log(json);
     var $removeContent = $('#remove dl');
     $removeContent.empty();
     $.each(json, function(key, value) {
@@ -237,7 +236,7 @@ function listAffectedEntries(json) {
 }
 
 function onValidationError(json) {
-    console.log(json);
+    log(json);
     try {
         var fieldErr = json.object.fieldErrors;
         $.each(fieldErr, function(key, val) {
@@ -249,6 +248,9 @@ function onValidationError(json) {
 }
 
 function fire_ajax(link, method, sendData, onSuccess, onError) {
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+
     $.ajax({
         url: link,
         type: method,
@@ -256,6 +258,9 @@ function fire_ajax(link, method, sendData, onSuccess, onError) {
         dataType: "json",
         accepts: {
             json: "application/json, text/javascript"
+        },
+        beforeSend: function(request) {
+            request.setRequestHeader(header, token);
         },
         success: function(json, status, xhr) {
             onSuccess(json);
@@ -266,8 +271,8 @@ function fire_ajax(link, method, sendData, onSuccess, onError) {
                 err = JSON.parse(err);
                 onError(err);
             } catch (e) {
-                console.log("Parsing failed");
-                console.log(err);
+                log("Parsing failed");
+                log(err);
             }
         }
     });

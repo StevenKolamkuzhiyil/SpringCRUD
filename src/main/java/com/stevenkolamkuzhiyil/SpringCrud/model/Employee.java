@@ -1,16 +1,16 @@
-package com.stevenkolamkuzhiyil.SpringCrud.dto.model;
+package com.stevenkolamkuzhiyil.SpringCrud.model;
+
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "employees")
-public class Employee {
-    @Id
-    @Column(name = "emp_id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long empId;
+public class Employee extends User {
 
     @Column(name = "first_name", nullable = false, length = 20)
     private String firstName;
@@ -35,21 +35,46 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String firstName, String lastName, LocalDate empDate, int salary, Employee supervisor, Branch branch) {
+    public Employee(String firstName, String lastName, LocalDate empDate,
+                    int salary, Employee supervisor, Branch branch,
+                    @Email String email, String password, String roles, String permissions) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.empDate = empDate;
         this.salary = salary;
         this.supervisor = supervisor;
         this.branch = branch;
+
+        this.email = email;
+        this.password = password;
+        this.enabled = true;
+        this.roles = roles;
+        this.permissions = permissions;
+    }
+
+    public Employee(String firstName, String lastName, LocalDate empDate,
+                    int salary, Employee supervisor, Branch branch,
+                    @Email String email, String password, String roles, Set<SimpleGrantedAuthority> permissions) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.empDate = empDate;
+        this.salary = salary;
+        this.supervisor = supervisor;
+        this.branch = branch;
+
+        this.email = email;
+        this.password = password;
+        this.enabled = true;
+        this.roles = roles;
+        this.setPermissions(permissions);
     }
 
     public long getEmpId() {
-        return empId;
+        return getUserId();
     }
 
     public void setEmpId(long empId) {
-        this.empId = empId;
+        setUserId(empId);
     }
 
     public String getFirstName() {
@@ -109,7 +134,7 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee that = (Employee) o;
-        return empId == that.empId &&
+        return userId == that.userId &&
                 salary == that.salary &&
                 Objects.equals(firstName, that.firstName) &&
                 Objects.equals(lastName, that.lastName) &&
@@ -119,6 +144,6 @@ public class Employee {
 
     @Override
     public int hashCode() {
-        return Objects.hash(empId, firstName, lastName, empDate, salary, supervisor);
+        return Objects.hash(userId, firstName, lastName, empDate, salary, supervisor, email);
     }
 }

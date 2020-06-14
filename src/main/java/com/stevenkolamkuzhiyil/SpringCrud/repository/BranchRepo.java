@@ -1,7 +1,7 @@
 package com.stevenkolamkuzhiyil.SpringCrud.repository;
 
-import com.stevenkolamkuzhiyil.SpringCrud.dto.model.Branch;
-import com.stevenkolamkuzhiyil.SpringCrud.dto.model.Employee;
+import com.stevenkolamkuzhiyil.SpringCrud.model.Branch;
+import com.stevenkolamkuzhiyil.SpringCrud.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,9 +1,9 @@
 package com.stevenkolamkuzhiyil.SpringCrud.service;
 
-import com.stevenkolamkuzhiyil.SpringCrud.dto.BranchDTO;
-import com.stevenkolamkuzhiyil.SpringCrud.dto.model.Branch;
-import com.stevenkolamkuzhiyil.SpringCrud.dto.model.Employee;
 import com.stevenkolamkuzhiyil.SpringCrud.exception.throwable.BranchNotFound;
+import com.stevenkolamkuzhiyil.SpringCrud.model.Branch;
+import com.stevenkolamkuzhiyil.SpringCrud.model.Employee;
+import com.stevenkolamkuzhiyil.SpringCrud.model.dto.BranchDTO;
 import com.stevenkolamkuzhiyil.SpringCrud.repository.BranchRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

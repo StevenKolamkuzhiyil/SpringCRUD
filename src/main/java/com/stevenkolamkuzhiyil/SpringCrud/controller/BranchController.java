@@ -1,9 +1,9 @@
 package com.stevenkolamkuzhiyil.SpringCrud.controller;
 
-import com.stevenkolamkuzhiyil.SpringCrud.dto.BranchDTO;
-import com.stevenkolamkuzhiyil.SpringCrud.dto.EmployeeDTO;
-import com.stevenkolamkuzhiyil.SpringCrud.dto.model.Branch;
 import com.stevenkolamkuzhiyil.SpringCrud.exception.throwable.ValidationException;
+import com.stevenkolamkuzhiyil.SpringCrud.model.Branch;
+import com.stevenkolamkuzhiyil.SpringCrud.model.dto.BranchDTO;
+import com.stevenkolamkuzhiyil.SpringCrud.model.dto.EmployeeDTO;
 import com.stevenkolamkuzhiyil.SpringCrud.service.BranchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

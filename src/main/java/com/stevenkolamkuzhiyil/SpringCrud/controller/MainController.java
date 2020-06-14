@@ -1,7 +1,7 @@
 package com.stevenkolamkuzhiyil.SpringCrud.controller;
 
-import com.stevenkolamkuzhiyil.SpringCrud.dto.BranchDTO;
-import com.stevenkolamkuzhiyil.SpringCrud.dto.EmployeeDTO;
+import com.stevenkolamkuzhiyil.SpringCrud.model.dto.BranchDTO;
+import com.stevenkolamkuzhiyil.SpringCrud.model.dto.EmployeeDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +14,11 @@ public class MainController {
     @GetMapping(path = {"", "/home"})
     public String index() {
         return "home";
+    }
+
+    @GetMapping(path = "user/login")
+    public String login() {
+        return "login";
     }
 
     @GetMapping("employees")

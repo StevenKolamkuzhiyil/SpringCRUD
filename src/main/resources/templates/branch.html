@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www..thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       lang="en">
 <head>
     <title>CRUD - Branches</title>
     <div th:replace="fragments.html :: headerfiles"></div>
     <div th:replace="fragments.html :: footer-headerfiles"></div>
+    <div th:replace="fragments.html :: csrf-header"></div>
+
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css}">
     <link rel="stylesheet" type="text/css"
           th:href="@{https://cdn.datatables.net/v/dt/dt-1.10.20/r-2.2.3/sp-1.0.1/sl-1.3.1/datatables.min.css}"/>
@@ -83,7 +86,7 @@
                 <th class="col-txt" scope="col">Branch Name</th>
                 <th class="col-txt" scope="col">Manager</th>
                 <th class="col-txt" scope="col">Manager Start Date</th>
-                <th class="col-txt" scope="col"></th>
+                <th sec:authorize="hasRole('ROLE_ADMIN') || hasRole('ROLE_MANAGER')" class="col-txt" scope="col"></th>
             </tr>
             </thead>
             <tbody></tbody>
@@ -96,6 +99,36 @@
 <footer th:replace="fragments.html :: nav-script"></footer>
 <script type="text/javascript"
         th:src="@{https://cdn.datatables.net/v/dt/dt-1.10.20/r-2.2.3/sp-1.0.1/sl-1.3.1/datatables.min.js}"></script>
+
+<script th:inline="javascript">
+    var add_btn = '';
+    var table_columns = [
+                            { data: 'id' },
+                            { data: 'branchName' },
+                            { data: 'managerId' },
+                            { data: 'mgrStartDate' }
+                        ];
+    /*[# sec:authorize="hasRole('ROLE_ADMIN') || hasRole('ROLE_MANAGER')"]*/
+
+    add_btn = '<button type="button" class="btn btn-outline-primary float-right mr-md-2" data-toggle="modal" id="add-btn" data-target="#modalScrollable">+</button>';
+    var defaultBtn = '<button type="button" class="edit-btn btn btn-info btn-sm mr-2" data-toggle="modal" data-target="#modalScrollable"><i class="far fa-edit"></i></button>';
+
+    /*[# sec:authorize="hasRole('ROLE_ADMIN')"]*/
+    defaultBtn = defaultBtn + '<button type="button" class="rem-btn btn btn-danger btn-sm ml-2" data-toggle="modal" data-target="#modalScrollable"><i class="far fa-trash-alt"></i></button>';
+    /*[/]*/
+
+    table_columns.push(
+        {
+            data: null,
+            defaultContent: defaultBtn
+        }
+    );
+
+    /*[/]*/
+
+
+</script>
+
 <script type="text/javascript" th:src="@{/js/branch.js}"></script>
 <script type="text/javascript" th:src="@{/js/table.js}"></script>
 </body>
