@@ -10,7 +10,8 @@ Manager: Can read, create and update database information.
 
 Admin: Can read, create, update and delete database information.
 
-#### Application Screenshot - Admin
+
+#### Application Screenshot - Admin:
 ![Application Screenshot](./SpringCRUD_Screenshot.png)
 
 ## Getting Started
