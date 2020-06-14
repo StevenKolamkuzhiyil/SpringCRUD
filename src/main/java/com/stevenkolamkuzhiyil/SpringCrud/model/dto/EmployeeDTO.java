@@ -40,7 +40,6 @@ public class EmployeeDTO {
     @Min(value = 1, message = "Invalid branch value.")
     private Long branchId;
 
-    // TODO: Check whether role is a valid role.
     @NotEmpty(message = "Select a role.")
     @ValidUserRole
     private String role;
